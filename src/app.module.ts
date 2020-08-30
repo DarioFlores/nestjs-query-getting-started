@@ -3,7 +3,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TodoItemModule } from './todo-item/todo-item.module';
+import { TodoItemModule } from './user/user.module';
+import { ClientModule } from './client/client.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { TodoItemModule } from './todo-item/todo-item.module';
       autoSchemaFile: true,
     }),
     TodoItemModule,
+    ClientModule,
   ],
   controllers: [AppController],
   providers: [AppService],
