@@ -13,7 +13,7 @@ import {
 } from 'class-validator';
 
 @ObjectType('User')
-@Relation('client', () => ClientDto, {nullable: true})
+@Relation('client', () => ClientDto, { nullable: true })
 export class UserDto {
   @FilterableField()
   id: string;

@@ -15,7 +15,7 @@ export class UserEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   roles?: string;
 
   @Column()
@@ -24,10 +24,10 @@ export class UserEntity {
   @Column()
   username: string;
 
-  @Column({name: 'client_account', nullable: true})
+  @Column({ name: 'client_account', nullable: true })
   clientAccount?: string;
 
-  @Column({type: 'timestamp', name: 'last_login', nullable: true})
+  @Column({ type: 'timestamp', name: 'last_login', nullable: true })
   lastLogin?: Date;
 
   @ManyToOne(
@@ -38,10 +38,9 @@ export class UserEntity {
   @JoinColumn()
   client: ClientEntity;
 
-  
-  @CreateDateColumn({type: 'timestamp', name: 'created_at'})
+  @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn({type: 'timestamp', name: 'updated_at'})
+  @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
 }

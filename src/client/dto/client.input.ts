@@ -1,13 +1,15 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsDefined, IsNotEmpty, IsString, Length, IsNumber, IsOptional } from 'class-validator';
+import {
+  IsDefined,
+  IsNotEmpty,
+  IsString,
+  Length,
+  IsNumber,
+  IsOptional,
+} from 'class-validator';
 
 @InputType('ClientInput')
 export class ClientInputDto {
-  @Field({
-    nullable: true,
-  })
-  id: string;
-
   @Field({
     description: `Represents the client's name`,
     nullable: false,

@@ -12,11 +12,13 @@ import { UserInput } from './dto/user.input';
       // and provide a QueryService
       imports: [NestjsQueryTypeOrmModule.forFeature([UserEntity])],
       // describe the resolvers you want to expose
-      resolvers: [{ 
-        DTOClass: UserDto, 
-        CreateDTOClass: UserInput,
-        EntityClass: UserEntity 
-      }],
+      resolvers: [
+        {
+          DTOClass: UserDto,
+          CreateDTOClass: UserInput,
+          EntityClass: UserEntity,
+        },
+      ],
     }),
   ],
 })

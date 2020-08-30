@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { UserEntity } from '../user/user.entity';
 
 @Entity('client')
@@ -12,10 +19,10 @@ export class ClientEntity {
   @Column()
   code: string;
 
-  @Column({name: 'price_disc'})
+  @Column({ name: 'price_disc' })
   priceDisc: number;
 
-  @Column({name: 'cust_rule', nullable: true})
+  @Column({ name: 'cust_rule', nullable: true })
   custRule?: string;
 
   @OneToMany(
@@ -24,9 +31,9 @@ export class ClientEntity {
   )
   users!: UserEntity[];
 
-  @CreateDateColumn({type: 'timestamp', name: 'created_at'})
+  @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn({type: 'timestamp', name: 'updated_at'})
+  @UpdateDateColumn({ type: 'timestamp', name: 'updated_at' })
   updatedAt: Date;
 }

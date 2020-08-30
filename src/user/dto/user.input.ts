@@ -1,5 +1,4 @@
-import { Field, InputType, GraphQLISODateTime, ID } from '@nestjs/graphql';
-import { ClientInputDto } from '../../client/dto/client.input';
+import { Field, InputType, ID } from '@nestjs/graphql';
 import { ClientDto } from '../../client/dto/client.dto';
 import {
   IsDefined,
@@ -9,7 +8,6 @@ import {
   IsOptional,
   IsDateString,
   Length,
-  IsUUID,
 } from 'class-validator';
 
 @InputType('UserInput')
