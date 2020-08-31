@@ -7,6 +7,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { UserEntity } from '../user/user.entity';
+import { OrderEntity } from '../order/order.entity';
+import { JoinColumn, ManyToOne } from 'typeorm';
 
 @Entity('client')
 export class ClientEntity {
@@ -25,11 +27,19 @@ export class ClientEntity {
   @Column({ name: 'cust_rule', nullable: true })
   custRule?: string;
 
-  @OneToMany(
+  @ManyToOne(
     () => UserEntity,
+    user => user.clients,
+    { onDelete: 'CASCADE', nullable: false },
+  )
+  @JoinColumn()
+  user: UserEntity;
+
+  @OneToMany(
+    () => OrderEntity,
     user => user.client,
   )
-  users!: UserEntity[];
+  orders!: OrderEntity[];
 
   @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
   createdAt: Date;

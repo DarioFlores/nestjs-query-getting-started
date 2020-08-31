@@ -1,13 +1,11 @@
 import { ClientEntity } from '../client/client.entity';
+import { OneToMany } from 'typeorm';
 import {
   Column,
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  ManyToOne,
-  ObjectType,
-  JoinColumn,
 } from 'typeorm';
 
 @Entity('user')
@@ -30,13 +28,11 @@ export class UserEntity {
   @Column({ type: 'timestamp', name: 'last_login', nullable: true })
   lastLogin?: Date;
 
-  @ManyToOne(
-    (): ObjectType<ClientEntity> => ClientEntity,
-    client => client.users,
-    { onDelete: 'CASCADE', nullable: true },
+  @OneToMany(
+    () => ClientEntity,
+    clients => clients.user,
   )
-  @JoinColumn()
-  client: ClientEntity;
+  clients!: ClientEntity[];
 
   @CreateDateColumn({ type: 'timestamp', name: 'created_at' })
   createdAt: Date;

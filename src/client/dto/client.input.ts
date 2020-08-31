@@ -1,4 +1,5 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, ID } from '@nestjs/graphql';
+import { UserInput } from '../../user/dto/user.input';
 import {
   IsDefined,
   IsNotEmpty,
@@ -46,4 +47,7 @@ export class ClientInputDto {
   @IsNotEmpty()
   @IsString()
   custRule?: string;
+
+  @Field(() => ID)
+  user: UserInput;
 }

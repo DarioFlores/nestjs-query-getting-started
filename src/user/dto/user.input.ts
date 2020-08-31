@@ -1,5 +1,4 @@
-import { Field, InputType, ID } from '@nestjs/graphql';
-import { ClientDto } from '../../client/dto/client.dto';
+import { Field, InputType } from '@nestjs/graphql';
 import {
   IsDefined,
   IsNotEmpty,
@@ -58,9 +57,4 @@ export class UserInput {
   @IsString()
   @Length(0, 20)
   clientAccount?: string;
-
-  @Field(() => ID, {
-    nullable: false,
-  })
-  client: ClientDto;
 }
