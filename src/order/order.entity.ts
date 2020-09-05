@@ -32,7 +32,7 @@ export class OrderEntity {
   @Column({ nullable: true })
   accidentalDeliveryDuration?: number;
 
-  @Column({type: 'float'})
+  @Column({ type: 'float' })
   ordPrice: number;
 
   @Column({ type: 'timestamp', name: 'start_time', nullable: true })

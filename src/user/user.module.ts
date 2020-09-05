@@ -15,11 +15,26 @@ import { UserInput } from './dto/user.input';
       resolvers: [
         {
           DTOClass: UserDto,
-          CreateDTOClass: UserInput,
           EntityClass: UserEntity,
+          create: {
+            CreateDTOClass: UserInput,
+            many: {
+              disabled: true,
+            },
+          },
+          update: {
+            many: {
+              disabled: true,
+            },
+          },
+          delete: {
+            many: {
+              disabled: true,
+            },
+          },
         },
       ],
     }),
   ],
 })
-export class TodoItemModule {}
+export class UserModule {}

@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { OrderPackageEntity } from "src/order-package/order-package.entity";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { OrderPackageEntity } from 'src/order-package/order-package.entity';
 
 @Entity('package')
 export class PackageEntity {
@@ -15,10 +15,10 @@ export class PackageEntity {
   @Column({ nullable: true })
   description?: string;
 
-  @Column({type: 'float'})
+  @Column({ type: 'float' })
   price: number;
 
-  @Column({type: 'float'})
+  @Column({ type: 'float' })
   coef: number;
 
   @Column({ nullable: true })

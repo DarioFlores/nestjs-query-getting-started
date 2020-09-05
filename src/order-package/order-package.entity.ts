@@ -1,5 +1,11 @@
 import { OrderEntity } from '../order/order.entity';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { PackageEntity } from '../package/package.entity';
 
 @Entity('order-package')
@@ -7,10 +13,10 @@ export class OrderPackageEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   quantity?: number;
-  
-  @Column({type: 'float', nullable: true})
+
+  @Column({ type: 'float', nullable: true })
   ordPackagePrice?: number;
 
   @ManyToOne(

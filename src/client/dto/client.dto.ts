@@ -1,9 +1,12 @@
 import { ObjectType } from '@nestjs/graphql';
-import { FilterableField, Relation } from '@nestjs-query/query-graphql';
+import {
+  FilterableField,
+  FilterableRelation,
+} from '@nestjs-query/query-graphql';
 import { UserDto } from '../../user/dto/user.dto';
 
 @ObjectType('Client')
-@Relation('user', () => UserDto)
+@FilterableRelation('user', () => UserDto)
 export class ClientDto {
   @FilterableField({
     nullable: true,

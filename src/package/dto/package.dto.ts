@@ -1,10 +1,13 @@
-import { FilterableField, Relation } from '@nestjs-query/query-graphql';
+import {
+  FilterableField,
+  FilterableRelation,
+} from '@nestjs-query/query-graphql';
 import { GraphQLFloat } from 'graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { OrderPackageDto } from '../../order-package/dto/order-package.dto';
 
 @ObjectType('Package')
-@Relation('orders', () => [OrderPackageDto])
+@FilterableRelation('orders', () => [OrderPackageDto])
 export class PackageDto {
   @FilterableField()
   id: string;
@@ -25,14 +28,12 @@ export class PackageDto {
   })
   description?: string;
 
-  @FilterableField(
-    () => GraphQLFloat, {
+  @FilterableField(() => GraphQLFloat, {
     description: `Represents package price`,
   })
   price: number;
 
-  @FilterableField(
-    () => GraphQLFloat, {
+  @FilterableField(() => GraphQLFloat, {
     description: `Coefficient between 0 and 1 for the calculation of prices`,
   })
   coef: number;

@@ -1,12 +1,16 @@
-import { FilterableField, Relation } from '@nestjs-query/query-graphql';
+import {
+  FilterableField,
+  FilterableConnection,
+  FilterableRelation,
+} from '@nestjs-query/query-graphql';
 import { ObjectType, GraphQLISODateTime, Int } from '@nestjs/graphql';
 import { ClientDto } from '../../client/dto/client.dto';
 import { GraphQLFloat } from 'graphql';
 import { OrderPackageDto } from '../../order-package/dto/order-package.dto';
 
 @ObjectType('Order')
-@Relation('client', () => ClientDto)
-@Relation('packages', () => [OrderPackageDto])
+@FilterableRelation('client', () => ClientDto)
+@FilterableConnection('packages', () => OrderPackageDto)
 export class OrderDto {
   @FilterableField()
   id: string;

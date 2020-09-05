@@ -22,11 +22,11 @@ export class UserEntity {
   @Column()
   username: string;
 
-  @Column({ name: 'client_account', nullable: true })
-  clientAccount?: string;
-
   @Column({ type: 'timestamp', name: 'last_login', nullable: true })
   lastLogin?: Date;
+
+  @Column({ name: 'client_account', nullable: true })
+  clientAccount?: string;
 
   @OneToMany(
     () => ClientEntity,

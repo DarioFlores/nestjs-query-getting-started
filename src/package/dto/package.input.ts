@@ -1,5 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql';
-import { GraphQLFloat } from "graphql";
+import { GraphQLFloat } from 'graphql';
 
 @InputType('PackageInput')
 export class PackageInputDto {
