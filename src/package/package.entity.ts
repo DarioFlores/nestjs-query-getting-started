@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { OrderPackageEntity } from 'src/order-package/order-package.entity';
+import { OrderPackageEntity } from '../order-package/order-package.entity';
 
 @Entity('package')
 export class PackageEntity {

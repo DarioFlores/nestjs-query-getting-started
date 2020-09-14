@@ -5,7 +5,7 @@ import {
   IsString,
   IsEmail,
   IsOptional,
-  IsDateString,
+  IsDate,
   Length,
 } from 'class-validator';
 
@@ -44,7 +44,7 @@ export class UserInput {
   })
   @IsOptional()
   @IsNotEmpty()
-  @IsDateString()
+  @IsDate()
   lastLogin?: Date;
 
   @Field({
